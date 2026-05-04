@@ -1,0 +1,42 @@
+---
+const services = [
+  {
+    title: 'YouTube Growth',
+    text: 'Повний цикл роботи в YouTube: стратегія, контент, тестування, масштабування і системний ріст каналу.',
+    items: ['Контент-стратегія', 'Сценарії та продакшн', 'Оптимізація каналу', 'Аналітика й масштабування'],
+  },
+  {
+    title: 'AI-відео',
+    text: 'Створюємо AI-реклами, UGC-контент, аватари, клонування голосу і відео під ключ для брендів.',
+    items: ['AI-дизайн і концепція', 'Клонування голосу', 'Аватари й персонажі', 'Монтаж і підготовка до публікації'],
+  },
+];
+---
+
+<section id="services" class="services section">
+  <div class="container stack" style="--stack-gap: var(--space-10)">
+    <div class="section-heading">
+      <span class="badge">Послуги</span>
+      <h2>Два напрямки. Один рівень.</h2>
+      <p>Закриваємо задачі бренду від ідеї до контенту, який готовий виходити в ефір.</p>
+    </div>
+
+    <div class="services__grid">
+      {services.map((service) => (
+        <article class="service-card card">
+          <h3>{service.title}</h3>
+          <p>{service.text}</p>
+          <ul>
+            {service.items.map((item) => (
+              <li>
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <a class="button button-secondary" href="#pricing">Детальніше</a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

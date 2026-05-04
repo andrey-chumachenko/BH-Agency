@@ -1,0 +1,52 @@
+---
+const youtube = [
+  { name: 'СТАРТ', price: 650, items: ['Стратегія каналу', 'Контент-план', 'Пакет сценаріїв', 'Базова аналітика'] },
+  { name: 'РІСТ', price: 1200, recommended: true, items: ['Усе зі СТАРТ', 'Продакшн під ключ', 'Оптимізація відео', 'Щотижнева аналітика'] },
+  { name: 'СИСТЕМА', price: 2000, items: ['Усе з РІСТ', 'Масштабування каналу', 'Команда під процес', 'Growth-експерименти'] },
+];
+
+const ai = [
+  { name: 'БАЗОВИЙ', price: 350, items: ['15 відео', 'Контент-план', 'Сценарії', 'Монтаж'] },
+  { name: 'ОПТИМАЛЬНИЙ', price: 700, recommended: true, items: ['20 відео', 'Усе з базового', '1 рекламне відео', '1 година консультації'] },
+  { name: 'ЕКСПЕРТНИЙ', price: 1050, items: ['30 відео', 'Усе з оптимального', 'Доступ до AI-курсу', 'Авторський GPTs'] },
+];
+
+const groups = [
+  { title: 'YouTube Growth', plans: youtube },
+  { title: 'AI-відео', plans: ai },
+];
+---
+
+<section id="pricing" class="pricing section">
+  <div class="container stack" style="--stack-gap: var(--space-12)">
+    <div class="section-heading">
+      <span class="badge">Пакети</span>
+      <h2>Прайс</h2>
+      <p>Оберіть стартовий формат, а калькулятор нижче швидко перерахує бюджет у гривні.</p>
+    </div>
+
+    {groups.map((group) => (
+      <div class="pricing__group">
+        <h3>{group.title}</h3>
+        <div class="pricing__grid">
+          {group.plans.map((plan) => (
+            <article class:list={['pricing-card', 'card', { 'pricing-card--featured': plan.recommended }]}>
+              {plan.recommended && <span class="pricing-card__badge">РЕКОМЕНДУЄМО</span>}
+              <h4>{plan.name}</h4>
+              <p><span>від</span> ${plan.price.toLocaleString('en-US')}</p>
+              <ul>
+                {plan.items.map((item) => (
+                  <li>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></svg>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a class="button button-primary" href="https://t.me/bhagencyy">Написати в Telegram</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

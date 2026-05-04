@@ -1,0 +1,31 @@
+---
+import MobileMenu from './MobileMenu.astro';
+import ThemeToggle from './ThemeToggle.astro';
+
+const links = [
+  { href: '/about', label: 'Про нас' },
+  { href: '/#services', label: 'Послуги' },
+  { href: '/#pricing', label: 'Пакети' },
+  { href: '/#cases', label: 'Кейси' },
+  { href: '/blog', label: 'Блог' },
+];
+---
+
+<header class="site-header" data-site-header>
+  <div class="site-header__inner">
+    <a class="brand" href="/" aria-label="BH Agency головна">
+      <span class="brand__mark">BH.</span>
+      <span>BH Agency</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Головне меню">
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    </nav>
+
+    <div class="site-header__actions">
+      <a class="button button-primary site-header__contact" href="https://t.me/bhagencyy">Контакт</a>
+      <ThemeToggle />
+      <MobileMenu />
+    </div>
+  </div>
+</header>

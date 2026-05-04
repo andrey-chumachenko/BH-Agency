@@ -1,0 +1,194 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Team from '../components/Team.astro';
+
+const timeline = [
+  {
+    year: '2020',
+    title: 'Перші кроки в YouTube',
+    text: 'Починаємо свою дорогу в YouTube. Власний Ютуб канал “Крутой Джонні”, перша команда і одразу з першого відео — стрибок з парашутом, аби відео було крутим! Великі колаборації з “Magic Five”, “Василь Кіт”, “Діма Евтушенко”. Зйомки повною командою 7 днів у Єгипті.',
+    tags: ['Перший канал', 'Стрибок з парашутом', 'Magic Five'],
+  },
+  {
+    year: '2021',
+    title: 'Перші бренд-клієнти',
+    text: 'Повний цикл роботи для офіційного каналу України “Visit Ukraine” — продюсер, сценарист, режисер. Паралельно — контент для “Watsons Ukraine” та інших брендів. Але основне — подорож Україною разом із батьком в будиночку на колесах, де ми проїхали 3500 кілометрів і малювали картини в найкрасивіших місцях України, а також зняли фільм про це :)',
+    tags: ['Visit Ukraine', 'Watsons', 'Документальний фільм'],
+  },
+  {
+    year: '2022',
+    title: 'Big Money та документальне кіно',
+    text: 'Початок роботи в команді “Big Money”, але війна одразу змінює всі плани. Допомагаємо чим можемо, записуємося у ТРО, але через вік не беруть. Продовжуємо працювати в Youtube. Перша сітка Youtube каналів з афірмаціями, вийшли на монетизацію в 5000$ на місяць.',
+    tags: ['Big Money', 'Війна', 'Сітка каналів'],
+  },
+  {
+    year: '2023 — 2024',
+    title: '30+ проєктів щомісяця',
+    text: 'Робота Тімлідом в українській YouTube компанії, керування щомісяця 20+ проектами — стартапи, канали мільйонники, особисті бренди. Команда з 10 людей, 100+ проектів. Робота з “ICTV”, “Novy Channel”, “Brocard”, “Leeloo AI”, “Sendpulse”, “Ajax Ukraine”, “MixShow” та сотні інших. Запуск власних Youtube каналів під монетизацію на 7 мовах.',
+    tags: ['100+ проєктів', 'Український масштаб', 'Робота на 7 мовах'],
+  },
+  {
+    year: '2025',
+    title: 'Перехід в AI. Агентство.',
+    text: 'Повністю переходимо в AI та поєднуємо з Youtube. Поставили рекорд в 1 мільйон підписників за 35 днів та довели 3 канали на монету за місяць. Об’єднуємося з найкращими експертами, з ким довелося працювати та заcновуємо агенцію BH Agency. Підписуємо перший контракт, результат у клієнта: перше відео в YouTube зібрало 1 млн переглядів. Працюємо від серця і люди починають нас рекомендувати.',
+    tags: ['Засновано BH Agency', '1 млн за 35 днів', 'Перший клієнт'],
+    featured: true,
+  },
+  {
+    year: '2026',
+    title: 'Працюємо з вами.',
+    text: 'Вкладаємо всі наші знання в ваші канали. І це тільки початок.',
+    tags: ['Чекаємо на тебе ❤'],
+  },
+];
+
+const servicePills = [
+  'YouTube Growth',
+  'AI Video Production',
+  'AI Image Creation',
+  'Brand Identity',
+  'Brand Design',
+  'Website Creation',
+  'AI Consulting',
+];
+
+const capabilities = [
+  {
+    title: 'AI Production',
+    eyebrow: 'Відео й креативи',
+    text: 'Будуємо повний цикл AI-продакшну: сценарії, візуальні концепції, озвучка, монтаж і адаптації під різні платформи.',
+  },
+  {
+    title: 'Website & Branding',
+    eyebrow: 'Точки дотику',
+    text: 'Проєктуємо айдентику, лендинги й бренд-системи, які підсилюють довіру до продукту та не виглядають шаблонно.',
+  },
+  {
+    title: 'YouTube Growth',
+    eyebrow: 'Органічний ріст',
+    text: 'Стратегія, упаковка, регулярний випуск, аналітика й оптимізація каналу для довгострокового зростання.',
+  },
+  {
+    title: 'YouTube під монетизацію',
+    eyebrow: 'Портфелі каналів',
+    text: 'Запускаємо й ведемо канали під конкретні ніші, мови та бізнес-цілі: від гіпотези до стабільного контент-процесу.',
+  },
+  {
+    title: 'Платні трафік-пайплайни',
+    eyebrow: 'Масштабування',
+    text: 'Збираємо рекламні звʼязки, креативні тести й воронки, які допомагають швидко перевіряти попит.',
+  },
+  {
+    title: 'AI Automation',
+    eyebrow: 'Процеси без хаосу',
+    text: 'Автоматизуємо повторювані задачі: генерацію ідей, сценаріїв, постів, озвучки, ресайзи та контент-планування.',
+  },
+];
+
+const proof = [
+  ['200+', 'каналів'],
+  ['16B+', 'переглядів'],
+  ['31M+', 'підписників'],
+];
+
+---
+
+<Layout
+  title="Про нас — BH Agency"
+  description="Команда BH Agency: YouTube Growth, AI-відео, бренд-дизайн, сайти та AI-консалтинг для бізнесу."
+>
+  <section id="about" class="about-hero section">
+    <div class="container about-hero__inner">
+      <div class="about-hero__copy">
+        <p class="about-kicker">Креативна студія з України</p>
+        <h1>Знайомтесь, наша команда</h1>
+        <p>Це команда, яка щодня перетворює ідеї на контент, а контент на результат. Ми поєднуємо креатив, стратегію, продакшн і автоматизацію, щоб створювати рішення, які справді працюють.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <Team />
+
+  <section class="about-journey section" aria-labelledby="journey-title">
+    <div class="container about-narrow">
+      <div class="about-section-head centered">
+        <h2 id="journey-title">Наш шлях</h2>
+        <p>Від YouTube до AI Video Production</p>
+      </div>
+
+      <div class="journey-list">
+        {timeline.map((item) => (
+          <article class:list={['journey-item', item.featured && 'journey-item--featured']}>
+            <span class="journey-dot" aria-hidden="true"></span>
+            <div class="journey-item__content">
+              <time>{item.year}</time>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <div class="journey-tags">
+                {item.tags.map((tag) => <span>{tag}</span>)}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="about-services section" aria-labelledby="services-title">
+    <div class="container about-services__top">
+      <div class="about-service-title">
+        <h2 id="services-title">Послуги, що масштабують ваш контент і бізнес.</h2>
+        <div class="tool-cloud" aria-label="Технології та інструменти">
+          {['YT', 'AI', 'PS', 'AE', 'PR', 'Notion', 'GPT', 'Figma', 'Web'].map((tool) => <span>{tool}</span>)}
+        </div>
+      </div>
+
+      <div class="service-pill-list">
+        {servicePills.map((service, index) => (
+          <a href="#capabilities" class="service-pill">
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            {service}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="container about-proof">
+      <div class="about-proof__copy">
+        <h2>BH Agency. AI-партнер для зростання брендів і особистих проєктів.</h2>
+        <p>Ми починали з YouTube і за роки виросли в команду, яка допомагає понад 200 каналам. Сьогодні робимо відео, AI-продакшн, айдентику, сайти й автоматизації. Наша задача проста: прибрати хаос із контенту та перетворити ідею на систему.</p>
+      </div>
+      <div class="about-logo-card" aria-label="BH Agency">BH<span>.</span></div>
+      <div class="proof-grid">
+        {proof.map(([value, label]) => (
+          <div>
+            <strong>{value}</strong>
+            <span>{label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div id="capabilities" class="container capabilities-grid">
+      {capabilities.map((capability) => (
+        <article class="capability-card reveal">
+          <span>{capability.eyebrow}</span>
+          <h3>{capability.title}</h3>
+          <p>{capability.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="about-contact section">
+    <div class="container about-contact__inner">
+      <div>
+        <p class="about-kicker">Є запитання?</p>
+        <h2>Напишіть нам у Telegram.</h2>
+        <p>Ми допоможемо розібратися, з чого почати, і підкажемо, як перетворити ідею на результат.</p>
+      </div>
+      <a class="button button-primary" href="https://t.me/bhagencyy">Написати у Telegram</a>
+    </div>
+  </section>
+</Layout>

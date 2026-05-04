@@ -1,0 +1,85 @@
+---
+const imageModules = import.meta.glob<{ default: ImageMetadata }>('../assets/images/team/*.webp', {
+  eager: true,
+});
+
+const people = [
+  {
+    slug: 'andrii',
+    name: 'Андрій',
+    role: 'Арт-директор',
+    description: '20+ років у дизайні. AI-креативи та вебсайти під ключ. Відчуває стиль та чує клієнтів, які потім дуже задоволені.',
+  },
+  {
+    slug: 'bohdan',
+    name: 'Богдан',
+    role: 'AI-продюсер',
+    description: '2 млн підписників на своїх Youtube каналах. 1500 відео створено та 500 млн переглядів зібрано. Має власний рекорд в 1 млн підписників Youtube за 1 місяць.',
+  },
+  {
+    slug: 'yevhenii',
+    name: 'Евгеній',
+    role: 'Креатив & AI-реклама',
+    description: 'Своя сітка Youtube каналів. Створює AI-рекламу для брендів, після якої вони пишуть “Вау!”. Реалізує різні креативні рішення у наших відео (та ваших).',
+  },
+  {
+    slug: 'nazar',
+    name: 'Назар',
+    role: 'YouTube-стратег',
+    description: 'Вивів власний канал на 110K підписників і запустив канали із сумарно 2,6 млн підписників. 6 років у відео — оператор, монтажер, YouTube-менеджер, продюсер.',
+  },
+  {
+    slug: 'serhii',
+    name: 'Сергій',
+    role: 'Shorts-стратег',
+    description: 'Має два активні Youtube канали з Shorts та 500 млн переглядів на них. Зробив для клієнтів 1+млрд переглядів за останні 3 роки.',
+  },
+  {
+    slug: 'yurii',
+    name: 'Юрій',
+    role: 'AI-інженер',
+    description: '2 власних Youtube канали. Знаходить рішення для автоматизації процесів за рахунок AI та додає їх до наших процесів (та до ваших).',
+  },
+];
+
+const getImage = (slug: string, width: number, theme: 'light' | 'dark' = 'light') => {
+  const suffix = theme === 'dark' ? `-dark-${width}w` : `-${width}w`;
+  return imageModules[`../assets/images/team/${slug}${suffix}.webp`].default;
+};
+const srcset = (slug: string, theme: 'light' | 'dark' = 'light') =>
+  [320, 480, 640].map((width) => `${getImage(slug, width, theme).src} ${width}w`).join(', ');
+const loop = [...people, ...people, ...people];
+---
+
+<section class="team section">
+  <div class="container stack" style="--stack-gap: var(--space-10)">
+    <div class="section-heading">
+      <span class="badge">Команда</span>
+      <h2>Команда, яка стоїть за результатами</h2>
+    </div>
+  </div>
+
+  <div class="team__rail" aria-label="Команда BH Agency" data-team-rail>
+    <div class="team__track">
+      {loop.map(({ slug, name, role, description }) => {
+        const lightImage = getImage(slug, 480);
+        const darkImage = getImage(slug, 480, 'dark');
+        return (
+          <article class="team-card" tabindex="0">
+            <div class="team-card__media">
+              <img class="team-card__image team-card__image--light" src={lightImage.src} srcset={srcset(slug)} sizes="(min-width: 768px) 320px, 78vw" width={lightImage.width} height={lightImage.height} alt={`${name}, ${role}`} loading="lazy" />
+              <img class="team-card__image team-card__image--dark" src={darkImage.src} srcset={srcset(slug, 'dark')} sizes="(min-width: 768px) 320px, 78vw" width={darkImage.width} height={darkImage.height} alt="" loading="lazy" aria-hidden="true" />
+              <div class="team-card__caption">
+                <div>
+                  <strong>{name}</strong>
+                  <span>{role}</span>
+                </div>
+              </div>
+            </div>
+            <p class="team-card__description">{description}</p>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>

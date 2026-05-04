@@ -1,0 +1,49 @@
+<section class="legacy-calculator section" aria-labelledby="legacy-calculator-title">
+  <div class="container legacy-calculator__inner">
+    <div class="section-heading">
+      <span class="badge">Стара версія</span>
+      <h2 id="legacy-calculator-title">Попередній калькулятор для порівняння</h2>
+      <p>Оригінальна компактна форма з вибором послуги, пакету і додаткових опцій.</p>
+    </div>
+
+    <form class="legacy-calculator__form card" data-legacy-calculator>
+      <label>
+        <span>Послуга</span>
+        <select name="service" data-legacy-calculator-service>
+          <option value="youtube">YouTube Growth</option>
+          <option value="ai">AI-відео</option>
+        </select>
+      </label>
+
+      <fieldset>
+        <legend>Пакет</legend>
+        <div class="legacy-calculator__packages" data-legacy-calculator-packages></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Додатково</legend>
+        <label class="legacy-calculator__check">
+          <input type="checkbox" value="250" data-legacy-calculator-addon />
+          <span>Додатковий монтаж 40 хв</span>
+        </label>
+        <label class="legacy-calculator__check">
+          <input type="checkbox" value="450" data-legacy-calculator-addon />
+          <span>Додатковий монтаж 80 хв</span>
+        </label>
+        <label class="legacy-calculator__check">
+          <input type="checkbox" value="300" data-legacy-calculator-addon />
+          <span>AI-аудит контенту</span>
+        </label>
+      </fieldset>
+
+      <div class="legacy-calculator__result">
+        <span>Разом / міс</span>
+        <strong data-legacy-calculator-usd>$0</strong>
+        <p data-legacy-calculator-uah>≈ ₴0</p>
+        <small data-legacy-calculator-rate>Курс НБУ завантажується...</small>
+      </div>
+
+      <a class="button button-primary" href="https://t.me/bhagencyy">Написати в Telegram</a>
+    </form>
+  </div>
+</section>

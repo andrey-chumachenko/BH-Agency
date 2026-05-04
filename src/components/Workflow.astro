@@ -1,0 +1,36 @@
+---
+const steps = [
+  ['01', 'Дзвінок', 'Збираємо цілі, контекст і очікування від контенту.'],
+  ['02', 'Пропозиція', 'Формуємо пакет робіт, таймінг і бюджет.'],
+  ['03', 'Старт', 'Будуємо процес, сценарії, продакшн і контроль якості.'],
+  ['04', 'Результат', 'Публікуємо, аналізуємо цифри й масштабуємо те, що працює.'],
+];
+---
+
+<section class="workflow section">
+  <div class="container stack" style="--stack-gap: var(--space-10)">
+    <div class="section-heading">
+      <span class="badge">Процес</span>
+      <h2>Як ми працюємо?</h2>
+      <p>Рухаємось короткими зрозумілими етапами: від першої розмови до контенту, готового до публікації.</p>
+    </div>
+
+    <div class="workflow__grid">
+      {steps.map(([number, title, text]) => (
+        <article class="workflow__step card">
+          <span>{number}</span>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </article>
+      ))}
+    </div>
+
+    <aside class="workflow__audit card">
+      <div>
+        <h3>Безкоштовний AI YouTube Audit</h3>
+        <p>Подивимось на канал, контент і точки росту, щоб швидко зрозуміти потенціал проєкту.</p>
+      </div>
+      <a class="button button-primary" href="https://t.me/bhagencyy">Бронюй дзвінок</a>
+    </aside>
+  </div>
+</section>

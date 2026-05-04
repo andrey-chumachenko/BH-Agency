@@ -1,0 +1,33 @@
+---
+import logo1 from '../assets/images/logos/partner-1.webp';
+import logo2 from '../assets/images/logos/partner-2.webp';
+import logo3 from '../assets/images/logos/partner-3.webp';
+import logo4 from '../assets/images/logos/partner-4.webp';
+import logo5 from '../assets/images/logos/partner-5.webp';
+import logo6 from '../assets/images/logos/partner-6.webp';
+import logo7 from '../assets/images/logos/partner-7.webp';
+import logo8 from '../assets/images/logos/partner-8.webp';
+
+const logos = [
+  { src: logo1, alt: 'Партнер BH Agency 1' },
+  { src: logo2, alt: 'Партнер BH Agency 2' },
+  { src: logo3, alt: 'Партнер BH Agency 3' },
+  { src: logo4, alt: 'Партнер BH Agency 4' },
+  { src: logo5, alt: 'Партнер BH Agency 5' },
+  { src: logo6, alt: 'Партнер BH Agency 6' },
+  { src: logo7, alt: 'Партнер BH Agency 7' },
+  { src: logo8, alt: 'Партнер BH Agency 8' },
+];
+
+const loop = [...logos, ...logos];
+---
+
+<section class="logo-carousel" aria-label="Партнери BH Agency">
+  <div class="logo-carousel__track">
+    {loop.map((logo) => (
+      <div class="logo-carousel__item">
+        <img src={logo.src.src} width={logo.src.width} height={logo.src.height} alt={logo.alt} loading="lazy" />
+      </div>
+    ))}
+  </div>
+</section>

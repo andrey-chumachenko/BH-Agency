@@ -1,0 +1,101 @@
+---
+import CaseLightbox from './CaseLightbox.astro';
+
+type CaseItem = {
+  slug: string;
+  title: string;
+  eyebrow: string;
+  summary: string;
+};
+
+const imageModules = import.meta.glob<{ default: ImageMetadata }>('../assets/images/cases/*.webp', {
+  eager: true,
+});
+
+const sizes = [640, 960, 1280, 1920, 2560];
+const getImage = (slug: string, theme: 'light' | 'dark', width: number) =>
+  imageModules[`../assets/images/cases/${slug}-${theme}-${width}w.webp`].default;
+const srcset = (slug: string, theme: 'light' | 'dark') =>
+  sizes.map((width) => `${getImage(slug, theme, width).src} ${width}w`).join(', ');
+
+const cases: CaseItem[] = [
+  {
+    slug: 'watsons-ukraine',
+    title: 'Watsons Ukraine',
+    eyebrow: 'YouTube Growth · Beauty & Retail',
+    summary: 'YouTube Growth',
+  },
+  {
+    slug: 'firematch',
+    title: 'Firematch',
+    eyebrow: '0 → 1 000 000 підписників · 35 днів',
+    summary: 'Youtube Growth & Монетизація',
+  },
+  {
+    slug: 'once-upon-a-time-in-ukraine',
+    title: 'Once Upon a Time in Ukraine',
+    eyebrow: '3 500 км · 15 днів · Документальний',
+    summary: 'Документальний фільм',
+  },
+  {
+    slug: 'nauka-tvogo-zhyttia',
+    title: 'Наука Твого Життя',
+    eyebrow: 'Освітній YouTube-контент',
+    summary: 'AI Production',
+  },
+];
+---
+
+<section id="cases" class="cases section">
+  <div class="container stack" style="--stack-gap: var(--space-10)">
+    <div class="section-heading">
+      <span class="badge">Роботи</span>
+      <h2>У нас дуже багато кейсів</h2>
+      <p>Добірка проєктів, де стратегія, продакшн і системність працюють разом.</p>
+    </div>
+
+    <div class="cases__grid">
+      {cases.map((item) => {
+        const light = getImage(item.slug, 'light', 640);
+        const dark = getImage(item.slug, 'dark', 640);
+        const fullLight = getImage(item.slug, 'light', 2560);
+        const fullDark = getImage(item.slug, 'dark', 2560);
+
+        return (
+          <button
+            class="case-card"
+            type="button"
+            data-lightbox-open
+            data-light-image={fullLight.src}
+            data-dark-image={fullDark.src}
+            data-alt={`${item.title}: ${item.eyebrow}`}
+          >
+            <span class="case-card__media" aria-hidden="true">
+              <picture class="case-card__image case-card__image--light">
+                <source srcset={srcset(item.slug, 'light')} sizes="(min-width: 768px) min(50vw, 620px), calc(100vw - 40px)" type="image/webp" />
+                <img src={light.src} width={light.width} height={light.height} alt="" loading="lazy" />
+              </picture>
+              <picture class="case-card__image case-card__image--dark">
+                <source srcset={srcset(item.slug, 'dark')} sizes="(min-width: 768px) min(50vw, 620px), calc(100vw - 40px)" type="image/webp" />
+                <img src={dark.src} width={dark.width} height={dark.height} alt="" loading="lazy" />
+              </picture>
+            </span>
+            <span class="case-card__content">
+              <span class="case-card__text">
+                <strong>{item.title}</strong>
+                <small>{item.summary}</small>
+              </span>
+              <span class="case-card__action" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M7 25 25 7M11 7h14v14" />
+                </svg>
+                <span>Переглянути проект</span>
+              </span>
+            </span>
+          </button>
+        );
+      })}
+    </div>
+  </div>
+  <CaseLightbox />
+</section>

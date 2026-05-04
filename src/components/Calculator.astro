@@ -1,0 +1,118 @@
+<section id="calculator" class="calculator section" aria-labelledby="calculator-title">
+  <div class="container-wide">
+    <form class="calculator__panel" data-calculator>
+      <div class="calculator__top">
+        <h2 id="calculator-title">Порахуй своє відео</h2>
+        <div class="calculator__languages" aria-label="Мова калькулятора">
+          <button class="is-active" type="button" aria-pressed="true">UA</button>
+          <button type="button" aria-pressed="false">EN</button>
+          <button type="button" aria-pressed="false">DE</button>
+          <button type="button" aria-pressed="false">PL</button>
+        </div>
+      </div>
+
+      <div class="calculator__services">
+        <div class="calculator__service-column">
+          <h3>YouTube Growth</h3>
+
+          <fieldset class="calculator__group">
+            <legend>Пакет</legend>
+            <div class="calculator__packages">
+              <button class="calculator__choice" type="button" aria-pressed="false" data-calculator-youtube-choice data-youtube-group="package" data-value="650">
+                <span>Старт</span>
+                <small>$650 · 4 відео</small>
+              </button>
+              <button class="calculator__choice" type="button" aria-pressed="false" data-calculator-youtube-choice data-youtube-group="package" data-value="1200">
+                <span>Ріст</span>
+                <small>$1 200 · 8 відео</small>
+              </button>
+              <button class="calculator__choice" type="button" aria-pressed="false" data-calculator-youtube-choice data-youtube-group="package" data-value="2000">
+                <span>Система</span>
+                <small>$2 000 · 12 відео</small>
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="calculator__group">
+            <legend>Монтаж (опціонально)</legend>
+            <div class="calculator__edits">
+              <button class="calculator__choice is-selected" type="button" aria-pressed="true" data-calculator-youtube-choice data-youtube-group="edit" data-value="0">
+                <span>-</span>
+                <small>$0</small>
+              </button>
+              <button class="calculator__choice" type="button" aria-pressed="false" data-calculator-youtube-choice data-youtube-group="edit" data-value="480">
+                <span>40 хв</span>
+                <small>$480</small>
+              </button>
+              <button class="calculator__choice" type="button" aria-pressed="false" data-calculator-youtube-choice data-youtube-group="edit" data-value="960">
+                <span>80 хв</span>
+                <small>$960</small>
+              </button>
+              <button class="calculator__choice" type="button" aria-pressed="false" data-calculator-youtube-choice data-youtube-group="edit" data-value="1440">
+                <span>120 хв</span>
+                <small>$1,440</small>
+              </button>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="calculator__service-column">
+          <h3>AI Video</h3>
+
+          <div class="calculator__ai-list">
+            <div class="calculator__ai-row" data-calculator-ai-row data-price="35">
+              <div class="calculator__ai-name">
+                <span>Розмовні</span>
+                <a href="https://t.me/bhagencyy" aria-label="Приклад розмовного AI Video">приклад</a>
+              </div>
+              <span class="calculator__ai-price">$35/відео</span>
+              <label class="sr-only" for="calculator-ai-conversation">Кількість розмовних відео</label>
+              <input id="calculator-ai-conversation" type="number" min="0" step="1" value="0" inputmode="numeric" data-calculator-ai-input />
+              <strong data-calculator-ai-total>$0</strong>
+            </div>
+
+            <div class="calculator__ai-row" data-calculator-ai-row data-price="50">
+              <div class="calculator__ai-name">
+                <span>Контентні</span>
+                <a href="https://t.me/bhagencyy" aria-label="Приклад контентного AI Video">приклад</a>
+              </div>
+              <span class="calculator__ai-price">$50/відео</span>
+              <label class="sr-only" for="calculator-ai-content">Кількість контентних відео</label>
+              <input id="calculator-ai-content" type="number" min="0" step="1" value="0" inputmode="numeric" data-calculator-ai-input />
+              <strong data-calculator-ai-total>$0</strong>
+            </div>
+
+            <div class="calculator__ai-row" data-calculator-ai-row data-price="70">
+              <div class="calculator__ai-name">
+                <span>UGC</span>
+                <a href="https://t.me/bhagencyy" aria-label="Приклад UGC AI Video">приклад</a>
+              </div>
+              <span class="calculator__ai-price">$70/відео</span>
+              <label class="sr-only" for="calculator-ai-ugc">Кількість UGC відео</label>
+              <input id="calculator-ai-ugc" type="number" min="0" step="1" value="0" inputmode="numeric" data-calculator-ai-input />
+              <strong data-calculator-ai-total>$0</strong>
+            </div>
+
+            <div class="calculator__ai-row" data-calculator-ai-row data-price="100">
+              <div class="calculator__ai-name">
+                <span>Рекламне</span>
+                <a href="https://t.me/bhagencyy" aria-label="Приклад рекламного AI Video">приклад</a>
+              </div>
+              <span class="calculator__ai-price">$100/відео</span>
+              <label class="sr-only" for="calculator-ai-ad">Кількість рекламних відео</label>
+              <input id="calculator-ai-ad" type="number" min="0" step="1" value="0" inputmode="numeric" data-calculator-ai-input />
+              <strong data-calculator-ai-total>$0</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="calculator__result">
+        <span>Разом / міс</span>
+        <strong data-calculator-total>$0</strong>
+      </div>
+
+      <a class="calculator__cta" href="https://t.me/bhagencyy">Написати в Telegram <span aria-hidden="true">→</span></a>
+    </form>
+  </div>
+</section>

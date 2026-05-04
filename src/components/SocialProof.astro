@@ -1,0 +1,19 @@
+<section class="social-proof section">
+  <div class="container stack" style="--stack-gap: var(--space-10)">
+    <div class="section-heading">
+      <span class="badge">Social Proof</span>
+      <h2>Цифри, що говорять самі за себе</h2>
+      <p>Сюди додамо скріншоти YouTube Studio та TikTok Analytics, коли будуть готові матеріали.</p>
+    </div>
+
+    <div class="social-proof__grid" aria-label="Місця для майбутніх скріншотів результатів">
+      {['YouTube', 'TikTok', 'YouTube Studio', 'Analytics'].map((label) => (
+        <article class="social-proof__card">
+          <span>{label}</span>
+          <strong>Скоро тут будуть результати каналів</strong>
+          <small>Підготуємо responsive image slot без зміни архітектури.</small>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

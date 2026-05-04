@@ -1,0 +1,29 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  tags?: string[];
+}
+
+const { title, description, pubDate, tags = [] } = Astro.props;
+---
+
+<Layout title={`${title} — BH Agency`} description={description}>
+  <article class="blog-post section">
+    <header class="blog-post__header container">
+      <a class="badge" href="/blog">Блог</a>
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <div class="blog-post__meta">
+        <time datetime={pubDate.toISOString()}>{pubDate.toLocaleDateString('uk-UA')}</time>
+        {tags.map((tag) => <span>{tag}</span>)}
+      </div>
+    </header>
+    <div class="blog-post__content container">
+      <slot />
+    </div>
+  </article>
+</Layout>
