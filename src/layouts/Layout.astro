@@ -3,13 +3,6 @@ import '../styles/tokens.css';
 import '../styles/base.css';
 import '../styles/utilities.css';
 import '../styles/components.css';
-import themeScript from '../scripts/theme.ts?url';
-import mobileMenuScript from '../scripts/mobile-menu.ts?url';
-import lightboxScript from '../scripts/lightbox.ts?url';
-import calculatorScript from '../scripts/calculator.ts?url';
-import headerScrollScript from '../scripts/header-scroll.ts?url';
-import scrollRevealScript from '../scripts/scroll-reveal.ts?url';
-import teamDragScript from '../scripts/team-drag.ts?url';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
@@ -71,12 +64,14 @@ const organizationSchema = {
       <slot />
     </main>
     <Footer />
-    <script src={themeScript} defer></script>
-    <script src={mobileMenuScript} defer></script>
-    <script src={lightboxScript} defer></script>
-    <script src={calculatorScript} defer></script>
-    <script src={headerScrollScript} defer></script>
-    <script src={scrollRevealScript} defer></script>
-    <script src={teamDragScript} defer></script>
+    <script>
+      import '../scripts/theme.ts';
+      import '../scripts/mobile-menu.ts';
+      import '../scripts/lightbox.ts';
+      import '../scripts/calculator.ts';
+      import '../scripts/header-scroll.ts';
+      import '../scripts/scroll-reveal.ts';
+      import '../scripts/team-drag.ts';
+    </script>
   </body>
 </html>
